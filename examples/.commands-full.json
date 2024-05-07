@@ -34,6 +34,17 @@
                     "icon": "utilities-terminal"
                 }
             ]
+        },
+        {
+            "title": "SSH Connections (With Icon)",
+            "type": "submenu",
+            "icon": "utilities-terminal",
+            "submenu": [
+                {
+                    "title": "Connect to Server (SSH)",
+                    "command": "gnome-terminal -- bash -c 'ssh root@10.144.1.2 -p 8022'"
+                }
+            ]
         }
     ]
 }

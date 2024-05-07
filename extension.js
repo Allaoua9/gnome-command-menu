@@ -53,7 +53,11 @@ function populateMenuItems(menu, cmds, level) {
     if (cmd.type === 'submenu' && level === 0) { // Stop submenu from being added after the first level
       let submenu;
       if (!cmd.submenu) { return; }
-      submenu = new PopupMenu.PopupSubMenuMenuItem(cmd.title);
+      const wantIcon = Boolean(cmd.icon)
+      submenu = new PopupMenu.PopupSubMenuMenuItem(cmd.title, wantIcon);
+      if (wantIcon) {
+        submenu.icon.icon_name = cmd.icon
+      }
       populateMenuItems(submenu.menu, cmd.submenu, level + 1);
       menu.addMenuItem(submenu);
       return;
